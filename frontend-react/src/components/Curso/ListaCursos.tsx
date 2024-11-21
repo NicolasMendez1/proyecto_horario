@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Curso } from '../../entities/Curso';
 import cursoRepository from '../../repositories/CursoRepository';
 import { TarjetaCurso } from './TarjetaCurso';
-import './Curso.css';
 
 export const ListaCursos = () => {
     const [cursos, setCursos] = useState<Curso[]>([]);
@@ -45,10 +44,10 @@ export const ListaCursos = () => {
     }
 
     return (
-        <div className="cursos-container">
-            <h2>Cursos Disponibles</h2>
+        <div >
+            <h2 >Cursos Disponibles</h2>
             <button onClick={agregarCurso}>Agregar Curso</button>
-            <div className="cursos-grid">
+            <div className="flex flex-col gap-4">
                 {cursos.map((curso) => (
                     <TarjetaCurso key={curso.codigo} curso={curso} />
                 ))}

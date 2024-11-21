@@ -1,0 +1,15 @@
+"REGLAS -> 
+1- los componentes de react no deben tener mas 3 niveles de
+anidamiento en la parte interna del return de jsx
+2- los estilo de tailwind debe estar en una constante y usarsa
+como "className={NOMBRE_CONSTANTE}"
+3- los componentes que contenedores, como un tenga un usestate
+con la lista de tareas, la lista de tareas debe ser un componente
+y la tarea por si misma debe ser otro componente.
+4- los componentes que son de solo presentacion, como un boton,
+un input, un label, un span, un div, un h1, h2, h3, h4, h5, h6,
+p, etc, deben ser funciones.
+FIN DE REGLAS"
+
+
+

@@ -1,5 +1,4 @@
 import { Profesor } from '../../entities/Profesor';
-import './Profesor.css';
 
 interface TarjetaProfesorProps {
     profesor: Profesor;
@@ -7,9 +6,9 @@ interface TarjetaProfesorProps {
 
 export const TarjetaProfesor: React.FC<TarjetaProfesorProps> = ({ profesor }) => {
     return (
-        <div className="profesor-card">
+        <div >
             <h3>{profesor.nombre} {profesor.apellidoPaterno} {profesor.apellidoMaterno}</h3>
-            <div className="profesor-details">
+            <div >
                 <p><strong>Código:</strong> {profesor.codigo}</p>
                 <p><strong>Nombre:</strong> {profesor.nombre}</p>
                 <p><strong>Apellido Paterno:</strong> {profesor.apellidoPaterno}</p>

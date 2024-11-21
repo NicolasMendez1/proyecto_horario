@@ -3,7 +3,7 @@ export interface Curso {
     nombre: string;
     horasCatedra: number;
     horasLaboratorio: number;
-    nivel: number;
+    nivel: number;  
     esAtemporal: boolean;
     esCursoGeneral: boolean;
     cantidadDeEstudiantes: number;

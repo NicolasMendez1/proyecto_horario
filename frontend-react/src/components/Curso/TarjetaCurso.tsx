@@ -1,16 +1,15 @@
 import { Curso } from '../../entities/Curso';
-import './Curso.css';
 
 interface TarjetaCursoProps {
     curso: Curso;
 }
 
+
 export const TarjetaCurso: React.FC<TarjetaCursoProps> = ({ curso }) => {
     return (
-        <div className="curso-card">
-            {"ddd"}
+        <div className="border border-gray-300 rounded-lg p-4 font-bold">
             <h3>{curso.nombre}</h3>
-            <div className="curso-details">
+            <div >
                 <p><strong>Código:</strong> {curso.codigo}</p>
                 <p><strong>Nivel:</strong> {curso.nivel}</p>
                 <p><strong>Horas Cátedra:</strong> {curso.horasCatedra}</p>

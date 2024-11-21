@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Profesor } from '../../entities/Profesor';
 import profesorRepository from '../../repositories/ProfesorRepository';
 import { TarjetaProfesor } from './TarjetaProfesor';
-import './Profesor.css';
 
 export const ListaProfesores = () => {
     const [profesores, setProfesores] = useState<Profesor[]>([]);
@@ -42,10 +41,10 @@ export const ListaProfesores = () => {
     }
 
     return (
-        <div className="profesores-container">
-            <h2>Profesores Disponibles</h2>
-            <button onClick={agregarProfesor}>Agregar Profesor</button>
-            <div className="profesores-grid">
+        <div >
+            <h2 >Profesores Disponibles</h2>
+            <button  onClick={agregarProfesor}>Agregar Profesor</button>
+            <div >
                 {profesores.map((profesor) => (
                     <TarjetaProfesor key={profesor.codigo} profesor={profesor} />
                 ))}

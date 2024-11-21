@@ -5,4 +5,5 @@ export interface Seccion {
     codigoSalaCatedra: string;
     codigoSalaLaboratorio: string;
     cantidadDeEstudiantesSeccion: number;
-} 
+}
+
