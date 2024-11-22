@@ -52,6 +52,8 @@ app.get('/api/cursos', async (req, res) => {
     }
 });
 
+app.post()
+
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
