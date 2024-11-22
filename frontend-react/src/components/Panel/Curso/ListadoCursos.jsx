@@ -14,9 +14,10 @@ export default function ListadoCursos() {
     }, []);
 
 
-    const cargarCursos = () => {
+    const cargarCursos = async () => {
         try {
-            const cursosData = cursoRepository.getAll();
+            const cursosData = await cursoRepository.getAll();
+            console.log(cursosData);
             setCursos([...cursosData]);
         } catch (error) {
             console.error('Error al cargar los cursos:', error);
@@ -46,10 +47,10 @@ export default function ListadoCursos() {
         <ul className="space-y-2">
             {cursos.map((curso, index) => (
                 <li key={index} className="bg-white p-4 rounded-md shadow ">
-                    <h3 className="font-bold">{curso.nombre}</h3>
-                    <p>Código: {curso.codigo}</p>
-                    <p>Nivel: {curso.nivel}</p>
-                    <p>Horas Cátedra: {curso.horasCatedra}</p>
+                    <h3 className="font-bold">{curso.NOMBRE}</h3>
+                    <p>Código: {curso.CODIGO}</p>
+                    <p>Nivel: {curso.NIVEL}</p>
+                    <p>Horas Cátedra: {curso.HORAS_CATEDRA}</p>
                 </li>
             ))}
         </ul>

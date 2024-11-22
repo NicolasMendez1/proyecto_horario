@@ -4,13 +4,13 @@ import InputNumerico from '../UI/InputNumerico';
 import CursoRepository from '../../../repositories/CursoRepository';
 
 export default function FormularioCurso() {
-    const [curso, setCurso] = useState({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0, nivel: 0 });
+    const [curso, setCurso] = useState({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0, nivel: 0, cantidadEstudiantes: 0 });
 	const estilo_submit_button = "w-full px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
 
     const handleSubmit = (e) => {
 		e.preventDefault();
         CursoRepository.create(curso);
-		setCurso({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0, nivel: 0 });
+		setCurso({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0, nivel: 0 , cantidadEstudiantes: 0 });
 	};
 
     return (
@@ -45,6 +45,12 @@ export default function FormularioCurso() {
             onChange={(newValue) => setCurso({ ...curso, nivel: newValue })}
             required={true}
             />
+            <InputNumerico
+            label="Cantidad de Estudiantes"
+            value={curso.cantidadEstudiantes}
+            onChange={(newValue) => setCurso({ ...curso, cantidadEstudiantes: newValue })}
+            required={true}
+            />            
             <button type="submit" className={estilo_submit_button}>Crear Curso</button>
         </form>
     );

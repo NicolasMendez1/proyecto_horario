@@ -1,9 +1,12 @@
 import { Curso } from '../entities/Curso';
-import cursos from '../data/cursos.json';
 
 class CursoRepository {
-    private cursos: Curso[] = cursos;
-     subscribers: (() => void)[] = [];
+    private cursos: Curso[] = [];
+    subscribers: (() => void)[] = [];
+
+    constructor() {
+        this.fetchCursos();
+    }
 
     subscribe(callback: () => void): void {
         this.subscribers.push(callback);
@@ -15,20 +18,41 @@ class CursoRepository {
         });
     }
 
-    getAll(): Curso[] {
+    private async fetchCursos(): Promise<void> {
+        try {
+            const response = await fetch('http://localhost:3000/api/cursos');
+            if (!response.ok) {
+                throw new Error('Error al obtener los cursos');
+            }
+            this.cursos = await response.json();
+            this.notifySubscribers();
+        } catch (error) {
+            console.error('Error fetching cursos:', error);
+        }
+    }
+
+    async getAll(): Promise<Curso[]> {
+        if (this.cursos.length === 0) {
+            await this.fetchCursos();
+        }
         return this.cursos;
     }
 
-    getById(codigo: string): Curso | undefined {
+    async getById(codigo: string): Promise<Curso | undefined> {
+        if (this.cursos.length === 0) {
+            await this.fetchCursos();
+        }
         return this.cursos.find(curso => curso.codigo === codigo);
     }
 
-    create(curso: Curso): void {
+    async create(curso: Curso): Promise<void> {
+        // TODO: Implementar llamada POST a la API
         this.cursos.push(curso);
         this.notifySubscribers();
     }
 
-    update(curso: Curso): void {
+    async update(curso: Curso): Promise<void> {
+        // TODO: Implementar llamada PUT a la API
         const index = this.cursos.findIndex(c => c.codigo === curso.codigo);
         if (index !== -1) {
             this.cursos[index] = curso;
@@ -36,7 +60,8 @@ class CursoRepository {
         }
     }
 
-    delete(codigo: string): void {
+    async delete(codigo: string): Promise<void> {
+        // TODO: Implementar llamada DELETE a la API
         const index = this.cursos.findIndex(curso => curso.codigo === codigo);
         if (index !== -1) {
             this.cursos.splice(index, 1);
