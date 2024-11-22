@@ -18,5 +18,15 @@
     "esAtemporal": false,
     "esCursoGeneral": true,
     "cantidadDeEstudiantes": 45
+  },
+  {
+    "codigo": "INF113",
+    "nombre": "Introducción a la Computación 1",
+    "horasCatedra": 6,
+    "horasLaboratorio": 0,
+    "nivel": 1,
+    "esAtemporal": false,
+    "esCursoGeneral": true,
+    "cantidadDeEstudiantes": 45
   }
 ] 

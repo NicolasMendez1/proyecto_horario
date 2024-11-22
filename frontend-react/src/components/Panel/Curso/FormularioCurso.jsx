@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import InputText from '../UI/InputTexto';
 import InputNumerico from '../UI/InputNumerico';
+import CursoRepository from '../../../repositories/CursoRepository';
 
 export default function FormularioCurso() {
     const [curso, setCurso] = useState({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0, nivel: 0 });
@@ -8,7 +9,7 @@ export default function FormularioCurso() {
 
     const handleSubmit = (e) => {
 		e.preventDefault();
-		//onSubmit(curso);
+        CursoRepository.create(curso);
 		setCurso({ codigoCurso: '', nombreCurso: '', horasCatedra: 0, horasPractica: 0, nivel: 0 });
 	};
 
