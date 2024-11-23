@@ -6,8 +6,6 @@ const config = {
     connectString: 'response-arena.gl.at.ply.gg:2049/xepdb1'
 };
 
-
-
 async function connectToOracle() {
     try {
         const connection = await oracledb.getConnection(config);
